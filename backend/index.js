@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(cors());
 
 //Database Connection with MongoDB
-//mongoose.connect("mongodb+srv://shreyashridhar107:dbshreyadb@cluster0.qehidue.mongodb.net/e-commerce");
 
 mongoose.connect(process.env.MONGO_URI);
 
