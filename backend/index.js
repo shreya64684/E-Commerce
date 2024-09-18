@@ -1,4 +1,4 @@
-const port = 4000;
+const port = 5000;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,12 +6,18 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const dotenv = require('dotenv');
+const { log } = require("console");
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
 
 //Database Connection with MongoDB
-mongoose.connect("mongodb+srv://shreyashridhar107:dbshreyadb@cluster0.qehidue.mongodb.net/e-commerce");
+//mongoose.connect("mongodb+srv://shreyashridhar107:dbshreyadb@cluster0.qehidue.mongodb.net/e-commerce");
+
+mongoose.connect(process.env.MONGO_URI);
+
 
 //API Creation
 
