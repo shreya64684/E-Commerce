@@ -1,4 +1,4 @@
-const port = 5000;
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,7 +7,7 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const dotenv = require('dotenv');
-const { log } = require("console");
+
 dotenv.config();
 
 app.use(express.json());
@@ -269,6 +269,7 @@ app.post('/getcart', fetchUser, async (req,res) => {
     let userData = await Users.findOne({_id : req.user.id});
     res.json(userData.cartData);
 } )
+const port = process.env.PORT;
 
 app.listen(port,(error)=> {
     if(!error){
